@@ -71,165 +71,60 @@ body
 
 </head>
 <body>
+<!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
+    JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
+    when JavaScript is disabled.
+  -->
+  
 <div id="flashContent">
-  <p>To view this page ensure that Adobe Flash Player version 10.0.0 or greater is installed.</p>
-  Besides, it's possible to <a href='./files/basic-html/index.html'>view a simplified version of the flippdf book on any device</a>,
-  or you can view flippdf <a href='mobile/index.html'>mobile version</a>
+<p>To view this page ensure that Adobe Flash Player version 10.0.0
+or greater is installed.</p>
+ Besides, it's possible to <a href='./files/basic-html/index.html'>view a simplified version of the flippdf book on any device</a>,
+or you can view flippdf <a href='mobile/index.html'>mobile version</a>
 </div>
 
-<script>
-  function showUserAgent() {
-    var str = navigator.userAgent;
-    var p = document.createElement("p");
-    p.innerHTML = str;
-    p.className = "gray";
-    document.getElementById("flashContent").appendChild(p);
-  }
-  showUserAgent();
+ <script>
+ 	function showUserAgent(){
+		var str = navigator.userAgent;
+		var p = document.createElement("p");
+		p.innerHTML = str;
+		p.className = "gray";
+		document.getElementById("flashContent").appendChild(p);
+	}
+	
+	showUserAgent();
 </script>
 
-<noscript>
-  <div>
-    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" id="FlipBookBuilder">
-      <param name="movie" value="book.swf" />
-      <param name="quality" value="high" />
-      <param name="bgcolor" value="#ffffff" />
-      <param name="allowScriptAccess" value="always" />
-      <param name="allowFullScreen" value="true" />
-      <param name="allowFullScreenInteractive" value="true" />
-      <!--[if !IE]>-->
-      <object type="application/x-shockwave-flash" data="book.swf" width="100%" height="100%">
-        <param name="quality" value="high" />
-        <param name="bgcolor" value="#ffffff" />
-        <param name="allowScriptAccess" value="always" />
-        <param name="allowFullScreen" value="true" />
-        <param name="allowFullScreenInteractive" value="true" />
-        <param name="wmode" value="transparent" />
-        <!--<![endif]-->
-        <p>Either scripts and active content are not permitted to run or Adobe Flash Player version 10.0.0 or greater is not installed.</p>
-        <!--<![endif]-->
-        <a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash Player</a> <br /> <br />
-        Besides, it's possible to <a href='./files/basic-html/index.html'>view a simplified version of the flippdf book on any device</a>,
-        or you can view flippdf <a href='mobile/index.html'>mobile version</a>
-        <!--[if !IE]>--></object> <!--<![endif]-->
-    </object>
-  </div>
-</noscript>
-
+<noscript><div><object classid=
+"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height=
+"100%" id="FlipBookBuilder"><param name="movie" value="book.swf" />
+<param name="quality" value="high" />
+<param name="bgcolor" value="#ffffff" />
+<param name="allowScriptAccess" value="always" />
+<param name="allowFullScreen" value="true" />
+<param name="allowFullScreenInteractive" value="true" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="book.swf" width=
+"100%" height="100%"><param name="quality" value="high" />
+<param name="bgcolor" value="#ffffff" />
+<param name="allowScriptAccess" value="always" />
+<param name="allowFullScreen" value="true" />
+<param name="allowFullScreenInteractive" value="true" />
+<param name="wmode" value="transparent" />
+<!--<![endif]--><!--[if gte IE 6]>-->
+<p>Either scripts and active content are not permitted to run or
+Adobe Flash Player version 10.0.0 or greater is not installed.</p>
+<!--<![endif]--> 
+<a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash Player</a> <br/> <br/>
+Besides, it's possible to <a href='./files/basic-html/index.html'>view a simplified version of the flippdf book on any device</a>,
+or you can view flippdf <a href='mobile/index.html'>mobile version</a>
+<!--[if !IE]>--></object> <!--<![endif]--></object></div></noscript>
 <script type="text/javascript" src="js/ActionHtmlWindow.js"></script>
 <script type="text/javascript" src="js/fbendscript.js"></script>
 
-<noscript>
-  <div>
-    <hr />
-    <ul>
-      <li><a href="files/basic-html/index.html">Pages</a></li>
-    </ul>
-    <hr style="width:80%" />
-  </div>
-</noscript>
+<noscript><div><hr/><ul><li><a href="files/basic-html/index.html">Pages</a></li></ul><hr style="width:80%"/></div></noscript>
 
-<!-- Nút điều khiển nhạc -->
-<div id="music-control">
-  <div class="color-bar"><div></div></div>
-  <button id="play-button">Phát nhạc</button>
-  <div id="volume-control" style="display: none;">
-    <label for="volume-slider">Âm lượng:</label>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
-  </div>
-</div>
-<audio id="bg-music" src="/assets/nhacnen.mp3" loop></audio>
+<script src="/assets/music.js"></script>
 
-<style>
-  #music-control {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    width: 12cm;
-    height: 8cm;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-  }
-
-  .color-bar {
-    width: 100%;
-    height: 4mm;
-    display: flex;
-  }
-
-  .color-bar::before,
-  .color-bar::after,
-  .color-bar div {
-    flex: 0 0 4mm;
-    height: 100%;
-  }
-
-  .color-bar::before {
-    content: '';
-    background-color: yellow;
-  }
-
-  .color-bar div {
-    background-color: blue;
-  }
-
-  .color-bar::after {
-    content: '';
-    background-color: red;
-  }
-
-  #play-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #6a0dad;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  #volume-control {
-    margin-top: 20px;
-    color: white;
-    background-color: #6a0dad;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  #volume-slider {
-    width: 100%;
-    accent-color: green;
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const playButton = document.getElementById('play-button');
-    const volumeControl = document.getElementById('volume-control');
-    const volumeSlider = document.getElementById('volume-slider');
-    const audio = document.getElementById('bg-music');
-
-    playButton.addEventListener('click', function () {
-      audio.volume = volumeSlider.value;
-      audio.play().then(() => {
-        playButton.style.display = 'none';
-        volumeControl.style.display = 'block';
-      }).catch((error) => {
-        console.error('Autoplay bị chặn:', error);
-      });
-    });
-
-    volumeSlider.addEventListener('input', function () {
-      audio.volume = this.value;
-    });
-  });
-</script>
 </body>
-
 </html>
